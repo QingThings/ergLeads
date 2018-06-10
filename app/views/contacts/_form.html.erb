@@ -36,10 +36,11 @@
     <%= form.text_field :phone %>
   </div>
 
-  <div class="field">
-    <%= form.label :organization_id %>
-    <%= form.number_field :organization_id %>
-  </div>
+  <select name="organization_id" id="organization_id">
+    <% @organizations.each do |o| %>
+      <option value=<%= o.id %>> <%= o.name %> </option>
+    <% end %>
+  </select>
 
   <div class="actions">
     <%= form.submit %>

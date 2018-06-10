@@ -27,7 +27,7 @@
 
 <p>
   <strong>Organization:</strong>
-  <%= @contact.organization_id %>
+  <%= @contact.organization&.name %>
 </p>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
