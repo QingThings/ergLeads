@@ -5,9 +5,10 @@ class CreateOrganizations < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :city
       t.string :state
-      t.string :zip
       t.string :region
-      t.string :website
+      t.string :zipcode
+      t.string :email
+      t.string :phone
       t.text :comments
 
       t.timestamps

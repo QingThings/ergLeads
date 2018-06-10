@@ -17,11 +17,12 @@ class OrganizationsTest < ApplicationSystemTestCase
     fill_in "Address", with: @organization.address
     fill_in "City", with: @organization.city
     fill_in "Comments", with: @organization.comments
+    fill_in "Email", with: @organization.email
     fill_in "Name", with: @organization.name
+    fill_in "Phone", with: @organization.phone
     fill_in "Region", with: @organization.region
     fill_in "State", with: @organization.state
-    fill_in "Website", with: @organization.website
-    fill_in "Zip", with: @organization.zip
+    fill_in "Zipcode", with: @organization.zipcode
     click_on "Create Organization"
 
     assert_text "Organization was successfully created"
@@ -35,11 +36,12 @@ class OrganizationsTest < ApplicationSystemTestCase
     fill_in "Address", with: @organization.address
     fill_in "City", with: @organization.city
     fill_in "Comments", with: @organization.comments
+    fill_in "Email", with: @organization.email
     fill_in "Name", with: @organization.name
+    fill_in "Phone", with: @organization.phone
     fill_in "Region", with: @organization.region
     fill_in "State", with: @organization.state
-    fill_in "Website", with: @organization.website
-    fill_in "Zip", with: @organization.zip
+    fill_in "Zipcode", with: @organization.zipcode
     click_on "Update Organization"
 
     assert_text "Organization was successfully updated"

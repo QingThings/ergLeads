@@ -10,17 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_09_231003) do
+ActiveRecord::Schema.define(version: 2018_06_10_164321) do
 
-  create_table "contacts", force: :cascade do |t|
-    t.string "title"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone"
-    t.integer "organization_id"
+  create_table "events", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "date"
+    t.text "comments"
+    t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "individuals", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "job_title"
+    t.string "email"
+    t.string "phone"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "individuals_organizations", id: false, force: :cascade do |t|
+    t.integer "organization_id", null: false
+    t.integer "individual_id", null: false
+    t.index ["individual_id", "organization_id"], name: "idv_org"
+    t.index ["organization_id", "individual_id"], name: "org_idv"
+  end
+
+  create_table "individuals_venues", id: false, force: :cascade do |t|
+    t.integer "individual_id", null: false
+    t.integer "venue_id", null: false
+    t.index ["individual_id", "venue_id"], name: "index_individuals_venues_on_individual_id_and_venue_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -28,9 +50,31 @@ ActiveRecord::Schema.define(version: 2018_06_09_231003) do
     t.string "address"
     t.string "city"
     t.string "state"
-    t.string "zip"
     t.string "region"
-    t.string "website"
+    t.string "zipcode"
+    t.string "email"
+    t.string "phone"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "organizations_venues", id: false, force: :cascade do |t|
+    t.integer "organization_id", null: false
+    t.integer "venue_id", null: false
+    t.index ["organization_id", "venue_id"], name: "index_organizations_venues_on_organization_id_and_venue_id"
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "kind"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "region"
+    t.string "zipcode"
+    t.string "email"
+    t.string "phone"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -2,6 +2,7 @@
 
 one:
   name: MyString
+  kind: MyString
   address: MyString
   city: MyString
   state: MyString
@@ -13,6 +14,7 @@ one:
 
 two:
   name: MyString
+  kind: MyString
   address: MyString
   city: MyString
   state: MyString

@@ -1,10 +1,10 @@
-<%= form_with(model: organization, local: true) do |form| %>
-  <% if organization.errors.any? %>
+<%= form_with(model: venue, local: true) do |form| %>
+  <% if venue.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
+      <h2><%= pluralize(venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
 
       <ul>
-      <% organization.errors.full_messages.each do |message| %>
+      <% venue.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,6 +14,11 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind %>
+    <%= form.text_field :kind %>
   </div>
 
   <div class="field">
