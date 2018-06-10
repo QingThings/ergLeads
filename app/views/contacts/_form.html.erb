@@ -36,7 +36,7 @@
     <%= form.text_field :phone %>
   </div>
 
-  <select name="organization_id" id="organization_id">
+  <select name="contact[organization_id]" id="organization_id">
     <% @organizations.each do |o| %>
       <option value=<%= o.id %>> <%= o.name %> </option>
     <% end %>
