@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# rails db:seed
+
 Individual.delete_all
 Organization.delete_all
 Venue.delete_all
@@ -32,15 +34,46 @@ mario = Individual.create(
   phone: "(555)555-5555"
 )
 
-pipe = Organization.create(name: "Green Pipe")
-play = Organization.create(name: "Speedway")
-kupa = Venue.create(name: 'stuff', city: "Bowsers", state: "Toad Kingdom")
-toad = Venue.create(name: 'stuff', city: "Village", state: "Toad Kingdom")
-a_speedway = Venue.create(name: 'stuff', city: "Columbus", state: "OH")
+pipe = Organization.create(
+  name: "Green Pipe"
+)
+
+play = Organization.create(
+  name: "Speedway"
+)
+
+kupa = Venue.create(
+  name: 'stuff',
+  city: "Bowsers",
+  state: "Toad Kingdom"
+)
+
+toad = Venue.create(
+  name: 'stuff',
+  city: "Village",
+  state: "Toad Kingdom"
+)
+
+a_speedway = Venue.create(
+  name: 'stuff',
+  city: "Columbus",
+  state: "OH"
+)
 
 john.update(organizations: [play, pipe], venues: [kupa, a_speedway])
 mario.update(organizations: [pipe], venues: [kupa, toad])
 jane.update(organizations: [play], venues: [a_speedway])
 
-Event.create(name: 'Country Dance thing', date: 1.week.ago, comments: "A bunch of booze and music.", venue: a_speedway)
-Event.create(name: 'Country Dance II', date: 1.week.from_now, comments: "Some more bunch of booze and music.", venue: a_speedway)
+Event.create(
+  name: 'Country Dance thing',
+  date: 1.week.ago,
+  comments: "A bunch of booze and music.",
+  venue: a_speedway
+)
+
+Event.create(
+  name: 'Country Dance II',
+  date: 1.week.from_now,
+  comments: "Some more bunch of booze and music.",
+  venue: a_speedway
+)
